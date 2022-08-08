@@ -1,0 +1,16 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>WHAT TO WATCH</title>
+  </head>
+  <header>
+    <h1 class="main_title"><b>WHAT TO WATCH</b></h1>
+  </header>
+  <body>
+    <div class="ranking_section">
+      {% for user in rankings %}
+        <p>{{ user }}</p>
+      {% endfor %}
+    </div>
+  </body>
+</html>

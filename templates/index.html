@@ -1,16 +1,34 @@
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>WHAT TO WATCH</title>
-  </head>
-  <header>
-    <h1 class="main_title"><b>WHAT TO WATCH</b></h1>
-  </header>
-  <body>
-    <div class="ranking_section">
-      {% for user in rankings %}
-        <p>{{ user }}</p>
-      {% endfor %}
-    </div>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <title>WHAT TO WATCH</title>
+</head>
+<header>
+  <h1 class="main_title"><b>WHAT TO WATCH</b></h1>
+</header>
+
+<body>
+  <div calss="forma">
+    <form class="selector" action="http://localhost:3000/" method="post">
+      <p>Enter Number :</p>
+      <p><input type="number" name="rm"></input></p>
+      <p><input type="submit" value="submit1" name="action1"></input></p>
+    </form>
+  </div>
+  <div>
+    <form class="selector" action="http://localhost:3000/" method="post">
+      <p> Or select a genre :</p>
+      <select name="genre">
+        <option value="Drama">Drama</option>
+        <option value="Drama">Action</option>
+        <option value="Drama">Music</option>
+        <option value="Drama">Drama</option>
+        <option value="Drama">Drama</option>
+      </select>
+      <p><input type="submit" value="submit2" name="action2"></input></p>
+    </form>
+  </div>
+</body>
+
 </html>
