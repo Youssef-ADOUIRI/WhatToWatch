@@ -33,7 +33,7 @@ def generateNtop(n = 100) :
         MovieL.append(data)
         MovieT.append(data['movie_title'])
     
-    db_man.insert(MovieL)
+    #db_man.insert(MovieL)
     
 
     return MovieT
@@ -56,3 +56,11 @@ def getSuggestion(genre = 'action'):
 
     return li
     
+def get_top_movies(n):
+    docs= db_man.findAll(lim=n)
+    Li = []
+    for s in docs:
+        output_str = '{} - {} ({})'.format(s['place'] , s['movie_title'] ,s['year'])
+        Li.append(output_str)
+    return Li
+

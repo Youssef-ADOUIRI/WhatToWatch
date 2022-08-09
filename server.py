@@ -15,7 +15,7 @@ def index():
 
 @app.route('/main/<int:num>')
 def main(num):
-    return render_template('main.html',rankings = topMovies.generateNtop(num))
+    return render_template('main.html',rankings = topMovies.get_top_movies(num))
 
 
 @app.route('/user/<genre>')
