@@ -1,22 +1,42 @@
-from urllib import response
+import re
 from bs4 import BeautifulSoup
 import requests
+from scraping import db_man
+
 
 def generateNtop(n = 100) :
 
     MovieL = []
+    MovieT = []
     url = 'http://www.imdb.com/chart/top'
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
     movies = soup.select('td.titleColumn')
+    crew = [a.attrs.get('title') for a in soup.select('td.titleColumn a')]
+    ratings = [b.attrs.get('data-value')
+        for b in soup.select('td.posterColumn span[name=ir]')]
     if n > len(movies):
         n = len(movies)
     for index in range(0, n):
         movie_string = movies[index].get_text()
         Movie = ' '.join(movie_string.split()).replace('.', '')
-        MovieL.append(Movie[len(str(index))+1:-7])
+        movie_title = Movie[len(str(index))+1:-7]
+        year = re.search('\((.*?)\)', movie_string).group(1)
+        place = Movie[:len(str(index))-(len(Movie))]
+        data = {"_id": index,
+            "place": place,
+            "movie_title": movie_title,
+            "rating": ratings[index],
+            "year": year,
+            "star_cast": crew[index],
+            }
+        MovieL.append(data)
+        MovieT.append(data['movie_title'])
+    
+    db_man.insert(MovieL)
+    
 
-    return MovieL
+    return MovieT
 
 
 def getSuggestion(genre = 'action'):
