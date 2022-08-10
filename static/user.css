@@ -13,15 +13,15 @@ header hr{
     border: none;
 }
 
-
 body{
     background-color: #222629 !important;
 }
 
-
 .Header{
     padding: auto;
 }
+
+/* -------------- comon css --------------*/
 
 #choice_type{
     text-align: center;

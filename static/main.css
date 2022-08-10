@@ -1,0 +1,24 @@
+*{
+    color:white;
+}
+header{
+    background-color: #222629;
+}
+header hr{
+    background-color: #86c232;
+    height: 4px;
+    width:100px;
+    margin: auto;
+    text-align: center;
+    border: none;
+}
+
+body{
+    background-color: #222629 !important;
+}
+
+.Header{
+    padding: auto;
+}
+
+/* -------------- comon css --------------*/
