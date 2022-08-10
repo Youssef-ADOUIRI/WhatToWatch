@@ -1,3 +1,33 @@
+*{
+    color:white;
+}
+header{
+    background-color: #222629;
+}
+header hr{
+    background-color: #86c232;
+    height: 4px;
+    width:100px;
+    margin: auto;
+    text-align: center;
+    border: none;
+}
+
+
+body{
+    background-color: #222629 !important;
+}
+
+
+.Header{
+    padding: auto;
+}
+
+#choice_type{
+    text-align: center;
+    font-size: 40px;
+}
+
 .user_section {
     margin: 30px;
     padding: auto;
@@ -16,9 +46,9 @@ input[type="radio"] {
 
 .Container label {
     position: relative;
-    color: #01cc65;
-    font-size: 25px;
-    border: 2px solid #01cc65;
+    color: #86c232;
+    font-size: 20px;
+    border: 2px solid #86c232;
     border-radius: 5px;
     padding: 10px 50px;
     margin: 15px;
@@ -26,6 +56,11 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked+label {
-    background-color: #01cc65;
+    background-color: #86c232;
     color: white;
+}
+
+
+.select_btn{
+    margin: 0;
 }
