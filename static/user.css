@@ -1,0 +1,31 @@
+.user_section {
+    margin: 30px;
+    padding: auto;
+}
+
+.Container {
+    position: absolute;
+    transform: translate(-50%, 50%);
+    top: 50%;
+    left: 50%;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.Container label {
+    position: relative;
+    color: #01cc65;
+    font-size: 25px;
+    border: 2px solid #01cc65;
+    border-radius: 5px;
+    padding: 10px 50px;
+    margin: 15px;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked+label {
+    background-color: #01cc65;
+    color: white;
+}

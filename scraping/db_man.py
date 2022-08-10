@@ -26,4 +26,7 @@ def findAll(args=None ,col = COL_NAME , lim = -1):
     else :
       docs = mycol.find()
   return docs
-  
+
+
+
+

@@ -64,3 +64,15 @@ def get_top_movies(n):
         Li.append(output_str)
     return Li
 
+
+'''
+def generate_movies_list_toDB(genre):
+    #get the number of movies in this categorie
+    url = f'https://www.imdb.com/search/title/?genres={genre}&title_type=feature'
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text , "html.parser")
+
+    tot_number = 
+    for i_page in range():
+        url = f'https://www.imdb.com/search/title/?genres={genre}&title_type=feature&start={}'
+'''
