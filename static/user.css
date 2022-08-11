@@ -64,3 +64,21 @@ input[type="radio"]:checked+label {
 .select_btn{
     margin: 0;
 }
+
+/*----- move next or back css -----*/
+
+.move_actions i {
+    color: aliceblue;
+    text-align: center;
+}
+
+
+
+#back{
+    text-align: start;
+    margin-right: 10px;
+}
+#search{
+    text-align: end;
+    margin-left: 10px;
+}

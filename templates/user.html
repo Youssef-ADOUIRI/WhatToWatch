@@ -1,78 +1,79 @@
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='user.css') }}"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='user.css') }}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <title>WHAT TO WATCH</title>
-  </head>
-  <header>
-      <div class="Header text-center">
+</head>
+<header>
+    <div class="Header text-center">
         <h1 class="main_title display-1"><b>WHAT TO WATCH ?</b></h1>
         <h3 class="display-2">
-          <small class="text-muted">Just let us chose for you</small>
+            <small class="text-muted">Just let us chose for you</small>
         </h3>
-      </div>
+    </div>
     <hr>
-  </header>
-  
-  <body>
-    <br><br><br><br><h1 id="choice_type" class="display-5">Select your favorite genre</h1>
+</header>
+
+<body>
+    <br><br><br><br>
+    <h1 id="choice_type" class="display-5">Select your favorites genres</h1>
     <form action="http://localhost:3000/user" method="post">
-      <div class="Container d-flex justify-content-center align-content-start flex-wrap ">
-        <div class="select_btn">
-          <input type="radio" id="drama"></input>
-          <label for="drama">Drama</label>
+        <div class="Container d-flex justify-content-center flex-wrap ">
+            <div class="select_btn">
+                <input type="radio" id="drama"></input>
+                <label for="drama">Drama</label>
+            </div>
+            <div class="select_btn">
+                <input type="radio" id="action"></input>
+                <label for="action">Action</label>
+            </div>
+            <div class="select_btn">
+                <input type="radio" id="adventure"></input>
+                <label for="adventure">Adventure</label>
+            </div>
+            <div class="select_btn">
+                <input type="radio" id="comedy"></input>
+                <label for="comedy">Comedy</label>
+            </div>
+            <div class="select_btn">
+                <input type="radio" id="romance"></input>
+                <label for="romance">Romance</label>
+            </div>
+            <div class="select_btn">
+                <input type="radio" id="war"></input>
+                <label for="war">War</label>
+            </div>
+            <div class="select_btn">
+                <input type="radio" id="fantasy"></input>
+                <label for="fantasy">Fantasy</label>
+            </div>
+            <div class="select_btn">
+                <input type="radio" id="history"></input>
+                <label for="history">History</label>
+            </div>
+            <div class="select_btn">
+                <input type="radio" id="horror"></input>
+                <label for="horror">Horror</label>
+            </div>
+            <div class="select_btn">
+                <input type="radio" id="scifi"></input>
+                <label for="scifi">Sci-Fi</label>
+            </div>
         </div>
-        <div class="select_btn">
-          <input type="radio" id="action"></input>
-          <label for="action">Action</label>
+
+        <div class="move_actions d-flex justify-content-center">
+            <button id="back" class="btn "><a> <i class="bi bi-arrow-left"></i> <small  class="text-muted">Back</small> </a></button>
+            <button id="search" class="btn "><a> <small class="text-muted">Search</small> <i class="bi bi-arrow-right"></i> </a></button>
         </div>
-        <div class="select_btn">
-          <input type="radio" id="adventure"></input>
-          <label for="adventure">Adventure</label>
-        </div>
-        <div class="select_btn">
-          <input type="radio" id="comedy"></input>
-          <label for="comedy">Comedy</label>
-        </div>
-        <div class="select_btn">
-          <input type="radio" id="romance"></input>
-          <label for="romanece">Romance</label>
-        </div>
-        <div class="select_btn">
-          <input type="radio" id="war"></input>
-          <label for="war">War</label>
-        </div>
-        <div class="select_btn">
-          <input type="radio" id="fantasy"></input>
-          <label for="fantasy">Fantasy</label>
-        </div>
-        <div class="select_btn">
-          <input type="radio" id="history"></input>
-          <label for="history">History</label>
-        </div>
-        <div class="select_btn">
-          <input type="radio" id="horror"></input>
-          <label for="horror">Horror</label>
-        </div>
-        <div class="select_btn">
-          <input type="radio" id="scifi"></input>
-          <label for="scifi">Sci-Fi</label>
-        </div>
-      </div>
+        
     </form>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
