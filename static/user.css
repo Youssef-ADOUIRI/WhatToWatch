@@ -49,7 +49,7 @@ input[type="radio"] {
     color: #86c232;
     font-size: 20px;
     border: 2px solid #86c232;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px 50px;
     margin: 15px;
     cursor: pointer;
@@ -67,18 +67,34 @@ input[type="radio"]:checked+label {
 
 /*----- move next or back css -----*/
 
-.move_actions i {
-    color: aliceblue;
-    text-align: center;
+
+
+.move_actions{
+    padding: 30px;
 }
 
+.butn{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    background-color: transparent;
+    border-color:  #61892f;
+    margin-right : 10px;
+    margin-left : 10px;
+    position: relative;
+}
 
+.butn i {
+    text-align: center;
+    color:  #86c232;
+}
 
 #back{
     text-align: start;
-    margin-right: 10px;
+    font-size: 35px;
 }
 #search{
+    font-size: 30px;
     text-align: end;
-    margin-left: 10px;
+
 }

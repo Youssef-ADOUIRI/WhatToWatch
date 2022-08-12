@@ -7,8 +7,9 @@ app = Flask(__name__)
 def index():
     if request.method == 'POST':
         if request.form.get('action1')=='submit1':
-            N = request.form['rm']
-            return redirect(url_for('main' ,num = N)) 
+            #N = request.form['rm']
+            # set 100 as default for now
+            return redirect(url_for('main' ,num = 100)) 
         elif request.form.get('action2')=='submit2':
             return redirect(url_for('user'))
     return render_template('index.html')  

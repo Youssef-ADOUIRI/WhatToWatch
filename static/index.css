@@ -30,3 +30,40 @@ body{
     margin-left: 10px;
 
 }
+
+.container{
+    margin-top: 100px;
+}
+
+.container p {
+    text-align: center;
+}
+
+.container button{
+    display: block;
+    margin: 0 auto;
+}
+
+body .vl{
+    background-color: #6B6E70;
+    width: 4px;
+    height: 200px;
+    display: block;
+    margin: auto;
+    border: none;
+}
+
+.butn{
+    color: #86c232;
+    font-size: 20px;
+    border: 2px solid #86c232;
+    border-radius: 50px;
+    padding: 10px 50px;
+    margin: 15px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.butn:hover{
+    background-color: #6B6E70;
+}
