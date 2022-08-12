@@ -22,11 +22,23 @@ def main(num):
 @app.route('/user' , methods=['GET', 'POST'])
 def user():
     if request.method == 'POST':
-        if request.form.get('move_action')=='forward':
-            return redirect(url_for('index'))
-        elif request.form.get('move_action')=='backward':
+        action_req = request.form.get('move_action')
+        if action_req == 'forward':
+            options = request.form.getlist('options')
+            print('----------------')
+            print(options)
+            print('----------------')
+            genres_str = ''
+            for sg in options:
+                genres_str += sg + ','
+            return redirect(url_for('result' , genres=genres_str))
+        elif action_req == 'backward':
             return redirect(url_for('index'))
     return render_template('user.html')
+
+@app.route('/result/<genres>' , methods=['GET', 'POST'])
+def result(genres):
+    return render_template('result.html' , results = topMovies.getSuggestions(genres))
 
 if ( __name__ == '__main__'):
     app.run(host='0.0.0.0', port=3000 , debug=True)

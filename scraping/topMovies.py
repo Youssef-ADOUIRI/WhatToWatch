@@ -39,14 +39,13 @@ def generateNtop(n = 100) :
     return MovieT
 
 
-def getSuggestion(genre = 'action'):
-    url = f'https://www.imdb.com/search/title/?genres={genre}&title_type=feature'
+def getSuggestions(genres='action'):
+    url = 'https://www.imdb.com/search/title/?title_type=feature&genres='+ genres
     response = requests.get(url)
     soup = BeautifulSoup(response.text , "html.parser")
     movies = soup.select('h3.lister-item-header')
 
     li = []
-
 
     for index in range(0, len(movies)):
         movie_string = movies[index].get_text()
