@@ -19,8 +19,13 @@ def main(num):
     return render_template('main.html',rankings = topMovies.get_top_movies(num))
 
 
-@app.route('/user')
+@app.route('/user' , methods=['GET', 'POST'])
 def user():
+    if request.method == 'POST':
+        if request.form.get('move_action')=='forward':
+            return redirect(url_for('index'))
+        elif request.form.get('move_action')=='backward':
+            return redirect(url_for('index'))
     return render_template('user.html')
 
 if ( __name__ == '__main__'):
