@@ -23,14 +23,17 @@
   <section class="results_section">
     <div class="movie_description">
       <div class="movie_image">
-        <img src="https://m.media-amazon.com/images/M/MV5BNGIzNjU5YTctMDllZi00MGU2LWI5MTYtYzc4ZGFjNzY5ZjYyXkEyXkFqcGdeQXVyODY5NzkyMjA@._V1_QL75_UY562_CR516,0,380,562_.jpg" alt="movie poster"></img>
+        <img src={{choice_imgUrl}} alt="movie poster"></img>
       </div>
       <div class="text_descriptor">
-        <h3>Prey 1</h3>
-        <p> That movie is descripted here talks<br/> about stuff that is related to chosen genre</p>
+        <h3>{{choice_title}}</h3>
+        <p> {{choice_desc}}</p>
       </div>
     </div>
   </section>
+  <form action="http://localhost:3000/user" method="post">
+    <button type="submit" value="shuffle" name="after_user_actions" > shuffle<button/>
+  </form>
 </body>
 
 </html>

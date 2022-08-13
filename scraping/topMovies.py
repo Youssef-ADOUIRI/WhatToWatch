@@ -21,7 +21,10 @@ def generateNtop(n = 100) :
         movie_string = movies[index].get_text()
         Movie = ' '.join(movie_string.split()).replace('.', '')
         movie_title = Movie[len(str(index))+1:-7]
-        year = re.search('\((.*?)\)', movie_string).group(1)
+        year = ''
+        search = re.search('\((.*?)\)', movie_string)
+        if (search):
+            year = search.group(0)
         place = Movie[:len(str(index))-(len(Movie))]
         data = {"_id": index,
             "place": place,
@@ -44,14 +47,27 @@ def getSuggestions(genres='action'):
     response = requests.get(url)
     soup = BeautifulSoup(response.text , "html.parser")
     movies = soup.select('h3.lister-item-header')
-
+    movie_section = soup.select('p.text-muted')
+    photos_html = soup.select('img.loadlate')
     li = []
 
     for index in range(0, len(movies)):
         movie_string = movies[index].get_text()
         movie = ' '.join(movie_string.split()).replace('.','')
         movie_title = movie[len(str(index))+1:-7]
-        li.append(movie_title)
+        # search for the description and the photo refrence
+        year = ''
+        search = re.search('\((.*?)\)', movie_string)
+        if (search):
+            year = search.group(0)
+        description = movie_section[2*index+1].get_text()
+        image_url_low = photos_html[1].get('loadlate')
+        firstUrl = image_url_low.split('@')
+        image_url_high = firstUrl[0] + '@' + '._V1_QL75_UY562_CR516,0,380,562_.jpg'
+        data = {"title" : movie_title + ' ' + year,
+            "description" : description,
+            "image_url" : image_url_high }
+        li.append(data)
 
     return li
     

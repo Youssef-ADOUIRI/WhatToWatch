@@ -1,5 +1,6 @@
 from flask import Flask, render_template ,request , redirect , url_for
 from scraping import topMovies
+import random
 
 app = Flask(__name__)
 
@@ -38,7 +39,22 @@ def user():
 
 @app.route('/result/<genres>' , methods=['GET', 'POST'])
 def result(genres):
-    return render_template('result.html' , results = topMovies.getSuggestions(genres))
+    if request.form == 'POST':
+        action_req = request.form.get('after_user_actions')
+        if action_req == 'shuffle':
+            results = topMovies.getSuggestions(genres)
+            n = random.randint(0,len(results))
+            choice_attrs = results[n]
+            print(choice_attrs['image_url'] )
+            return render_template('result.html' ,choice_title = choice_attrs['title']  , choice_desc = choice_attrs['description'] , choice_imgUrl = choice_attrs['image_url'] )
 
+    results = topMovies.getSuggestions(genres)
+    n = random.randint(0,len(results)-1)
+    choice_attrs = results[n]
+    print(choice_attrs['image_url'] )
+    return render_template('result.html' ,choice_title = choice_attrs['title']  , choice_desc = choice_attrs['description'] , choice_imgUrl = choice_attrs['image_url'] )
+
+
+#start
 if ( __name__ == '__main__'):
     app.run(host='0.0.0.0', port=3000 , debug=True)

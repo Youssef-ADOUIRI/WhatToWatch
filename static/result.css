@@ -27,7 +27,7 @@ body {
 
 .movie_description {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     text-align: center;
     margin: auto;
@@ -37,7 +37,7 @@ body {
 /*for mobile*/
 .results_section {
     width: auto;
-    background-color: #6B6E70;
+    background-color: #474B4F;
     border-color: white;
     border: white solid 1px;
     padding: 10px;
@@ -57,6 +57,10 @@ body {
     margin: 10px;
 }
 
+.text_descriptor h3{
+    color :#86c232;
+}
+
 /*for desktop*/
 @media screen and (min-width: 600px) {
     .results_section {
@@ -64,14 +68,20 @@ body {
         margin: auto;
         margin-top: 100px;
     }
+
     .movie_description img {
         width: 150px;
         height: auto;
         margin: 10px;
     }
+
     .text_descriptor {
         text-align: start;
     }
 }
 
-
+@media screen and (min-width: 800px) {
+    .results_section {
+        width: 650px;
+    }
+}
