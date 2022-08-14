@@ -61,12 +61,44 @@ body {
     color :#86c232;
 }
 
+.result_container{
+    display: flex;
+    margin: auto;
+    width: auto;
+    align-items: center;
+    justify-items: center;
+}
+
+.butn{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    background-color: transparent;
+    border-color:  #61892f;
+    margin: 10px;
+    position: relative;
+}
+
+.butn i {
+    text-align: center;
+    color:  #86c232;
+}
+
+#back {
+    text-align: start;
+    font-size: 35px;
+}
+#shuffle{
+    text-align: center;
+    font-size: 25px;
+}
+
 /*for desktop*/
 @media screen and (min-width: 600px) {
     .results_section {
         width: 560px;
         margin: auto;
-        margin-top: 100px;
+        margin-top: 50px;
     }
 
     .movie_description img {
@@ -78,10 +110,16 @@ body {
     .text_descriptor {
         text-align: start;
     }
+    .result_container{
+        width: 560px;
+    }
 }
 
 @media screen and (min-width: 800px) {
-    .results_section {
+    .results_section  {
+        width: 650px;
+    }
+    .result_container{
         width: 650px;
     }
 }

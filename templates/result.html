@@ -32,7 +32,10 @@
     </div>
   </section>
   <form action="http://localhost:3000/result/{{genres}}" method="post">
-    <button class = "btn btn-primary" type="submit" value="shuffle" name="after_user_actions">shuffle<button/>
+    <div class='result_container'>
+      <button id="back" class="butn " type="submit" value="back" name="after_user_actions"><i class="bi bi-x"></i></button>
+      <button id='shuffle' class="butn" type="submit" value="shuffle" name="after_user_actions"><i class="bi bi-shuffle"></i></button>
+    </div>
   </form>
 </body>
 
