@@ -1,8 +1,10 @@
-from flask import Flask, render_template ,request , redirect , url_for
+from flask import Flask, render_template , request , redirect , url_for
 from scraping import topMovies
 import random
 
 app = Flask(__name__)
+
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -15,9 +17,12 @@ def index():
             return redirect(url_for('user'))
     return render_template('index.html')  
 
+
+
 @app.route('/main/<int:num>')
 def main(num):
     return render_template('main.html',rankings = topMovies.get_top_movies(num))
+
 
 
 @app.route('/user' , methods=['GET', 'POST'])
@@ -37,22 +42,20 @@ def user():
             return redirect(url_for('index'))
     return render_template('user.html')
 
+
 @app.route('/result/<genres>' , methods=['GET', 'POST'])
 def result(genres):
+
+    results = topMovies.getSuggestions(genres)
+    result = random.choice(results)
+    print(result['image_id'] )
+
     if request.form == 'POST':
         action_req = request.form.get('after_user_actions')
         if action_req == 'shuffle':
-            results = topMovies.getSuggestions(genres)
-            n = random.randint(0,len(results))
-            choice_attrs = results[n]
-            print(choice_attrs['image_url'] )
-            return render_template('result.html' ,choice_title = choice_attrs['title']  , choice_desc = choice_attrs['description'] , choice_imgUrl = choice_attrs['image_url'] )
+            print('----- please shuffle -----')
 
-    results = topMovies.getSuggestions(genres)
-    n = random.randint(0,len(results)-1)
-    choice_attrs = results[n]
-    print(choice_attrs['image_url'] )
-    return render_template('result.html' ,choice_title = choice_attrs['title']  , choice_desc = choice_attrs['description'] , choice_imgUrl = choice_attrs['image_url'] )
+    return render_template('result.html' ,genres=genres ,choice_title = result['title']  , choice_desc = result['description'] , choice_imgUrl = topMovies.get_imageURL_fromID(result['image_id'] ))
 
 
 #start

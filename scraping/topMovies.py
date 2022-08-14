@@ -61,16 +61,25 @@ def getSuggestions(genres='action'):
         if (search):
             year = search.group(0)
         description = movie_section[2*index+1].get_text()
-        image_url_low = photos_html[1].get('loadlate')
-        firstUrl = image_url_low.split('@')
-        image_url_high = firstUrl[0] + '@' + '._V1_QL75_UY562_CR516,0,380,562_.jpg'
+        #image_url_low = photos_html[index].get('loadlate')
+        #firstUrl = image_url_low.split('@')
+        #image_url_high = firstUrl[0] + '@' + '._V1_QL75_UY562_CR516,0,380,562_.jpg'
+        image_id = photos_html[index].get('data-tconst')
         data = {"title" : movie_title + ' ' + year,
             "description" : description,
-            "image_url" : image_url_high }
+            "image_id" : image_id }
         li.append(data)
 
     return li
-    
+
+def get_imageURL_fromID(img_id):
+    #scrap the the image from the movie name
+    url = 'https://www.imdb.com/title/' + str(img_id)
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text , "html.parser")
+    image_url = soup.select('img.ipc-image')
+    return image_url[0].get('src')
+
 def get_top_movies(n):
     docs= db_man.findAll(lim=n)
     Li = []
