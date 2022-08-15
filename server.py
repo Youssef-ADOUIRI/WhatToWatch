@@ -55,7 +55,7 @@ def result(genres):
         if action_req == 'shuffle':
             print('----- please shuffle -----')
 
-    return render_template('result.html' ,genres=genres ,choice_title = result['title']  , choice_desc = result['description'] , choice_imgUrl = topMovies.get_imageURL_fromID(result['image_id'] , app_url=app_url ))
+    return render_template('result.html' ,genres=genres ,choice_title = result['title']  , choice_desc = result['description'] , choice_imgUrl = topMovies.get_imageURL_fromID(result['image_id'] ) , app_url=app_url)
 
 
 #start
