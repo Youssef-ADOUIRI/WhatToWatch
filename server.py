@@ -4,7 +4,7 @@ import random
 
 app = Flask(__name__)
 
-
+app_url = 'https://pick-what-to-watch.herokuapp.com'
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -15,13 +15,13 @@ def index():
             return redirect(url_for('main' ,num = 100)) 
         elif request.form.get('action2')=='submit2':
             return redirect(url_for('user'))
-    return render_template('index.html')  
+    return render_template('index.html' , app_url = app_url)  
 
 
 
 @app.route('/main/<int:num>')
 def main(num):
-    return render_template('main.html',rankings = topMovies.get_top_movies(num))
+    return render_template('main.html', results = topMovies.get_top_movies(num) , app_url=app_url)
 
 
 
@@ -40,7 +40,7 @@ def user():
             return redirect(url_for('result' , genres=genres_str))
         elif action_req == 'backward':
             return redirect(url_for('index'))
-    return render_template('user.html')
+    return render_template('user.html' , app_url = app_url)
 
 
 @app.route('/result/<genres>' , methods=['GET', 'POST'])
@@ -55,7 +55,7 @@ def result(genres):
         if action_req == 'shuffle':
             print('----- please shuffle -----')
 
-    return render_template('result.html' ,genres=genres ,choice_title = result['title']  , choice_desc = result['description'] , choice_imgUrl = topMovies.get_imageURL_fromID(result['image_id'] ))
+    return render_template('result.html' ,genres=genres ,choice_title = result['title']  , choice_desc = result['description'] , choice_imgUrl = topMovies.get_imageURL_fromID(result['image_id'] , app_url=app_url ))
 
 
 #start
