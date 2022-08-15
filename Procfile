@@ -1,1 +1,1 @@
-web: gunicorn WhatToWatch.wsgi
+web: gunicorn server:app

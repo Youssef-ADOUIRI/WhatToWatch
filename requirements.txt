@@ -1,2 +1,6 @@
 gunicorn
 flask
+beautifulsoup4
+bs4
+requests
+pymongo
