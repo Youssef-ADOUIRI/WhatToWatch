@@ -4,6 +4,7 @@ import random
 
 app = Flask(__name__)
 
+#change url for localhost
 app_url = 'https://pick-what-to-watch.herokuapp.com'
 
 @app.route('/', methods=['GET', 'POST'])
@@ -50,7 +51,7 @@ def result(genres):
     result = random.choice(results)
     print(result['image_id'] )
 
-    if request.form == 'POST':
+    if request.method == 'POST':
         action_req = request.form.get('after_user_actions')
         if action_req == 'shuffle':
             print('----- please shuffle -----')
