@@ -82,7 +82,7 @@ def get_imageURL_fromID(img_id):
 def get_top_movies(n):
     docs= db_man.findAll(lim=n)
     #temporary function ( may god help me remember to remove it )
-    if (docs.count() == 0):
+    if (len(list(docs)) == 0):
         #for the first time only
         generateNtop()
         docs = db_man.findAll(lim=n)
