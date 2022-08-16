@@ -56,7 +56,7 @@ def result(genres):
         if action_req == 'shuffle':
             print('----- please shuffle -----')
         elif action_req == 'back':
-            return redirect(url_for('user.html'))
+            return redirect(url_for('user'))
     return render_template('result.html' ,genres=genres ,choice_title = result['title']  , choice_desc = result['description'] , choice_imgUrl = topMovies.get_imageURL_fromID(result['image_id'] ) , app_url=app_url)
 
 
