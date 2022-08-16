@@ -3,7 +3,7 @@ import pymongo
 DB_NAME = "watch_db"
 COL_NAME = "movies"
 #please config your own db 
-PASSWORD = 'password'
+PASSWORD = 'UOHKqh4onoGhcRVH'
 
 Listening_server = "mongodb+srv://admin_user:{}@movie-picker.qadpv9w.mongodb.net/?retryWrites=true&w=majority".format(PASSWORD)
 myclient = pymongo.MongoClient(Listening_server)
