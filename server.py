@@ -69,7 +69,6 @@ def result(genres):
 if ( __name__ == '__main__'):
     
     #change url for localhost
-    
     #locla excution if arg1 == loc
     if len(sys.argv) > 1:
         arg1 = sys.argv[1]

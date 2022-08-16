@@ -28,28 +28,27 @@ body{
     margin-bottom: 20px;
     margin-right: 20px;
     margin-left: 10px;
-
 }
 
-.container{
+.Container{
     margin-top: 100px;
 }
 
-.container p {
+.Container p {
     text-align: center;
 }
 
-.container button{
+.Container button{
     display: block;
     margin: 0 auto;
 }
 
-body .vl{
+body .vhl{
     background-color: #6B6E70;
-    width: 4px;
-    height: 200px;
+    height: 4px;
+    width: 200px;
     display: block;
-    margin: auto;
+    margin: 15px auto ;
     border: none;
 }
 
@@ -66,4 +65,26 @@ body .vl{
 
 .butn:hover{
     background-color: #6B6E70;
+}
+
+
+@media screen and (min-width  : 600px) {
+    body .vhl {
+        width: 4px;
+        height: 200px;
+
+    }
+    .Container{
+        padding: 10px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .top_movies_section , .random_movie_section{
+        width: 370px;
+        margin: 20px;
+    }
+
 }
