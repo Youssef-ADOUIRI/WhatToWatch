@@ -5,7 +5,7 @@ import sys
 
 
 
-
+app_url = 'https://pick-what-to-watch.herokuapp.com'
 app = Flask(__name__)
 
 
@@ -69,7 +69,7 @@ def result(genres):
 if ( __name__ == '__main__'):
     
     #change url for localhost
-    app_url = 'https://pick-what-to-watch.herokuapp.com'
+    
     #locla excution if arg1 == loc
     if len(sys.argv) > 1:
         arg1 = sys.argv[1]
