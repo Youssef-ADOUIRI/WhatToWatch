@@ -82,15 +82,14 @@ def get_imageURL_fromID(img_id):
 def get_top_movies(n):
     docs= db_man.findAll(lim=n)
     #temporary function ( may god help me remember to remove it )
-    if (len(list(docs)) == 0):
-        #for the first time only
-        generateNtop()
-        docs = db_man.findAll(lim=n)
+    print('docs : ')
+    print(docs)
 
     Li = []
     for s in docs:
         output_str = '{} - {} ({})'.format(s['place'] , s['movie_title'] ,s['year'])
         Li.append(output_str)
+        print('appended : '+ output_str)
     
     return Li
 
