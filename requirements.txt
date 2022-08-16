@@ -4,4 +4,4 @@ beautifulsoup4
 bs4
 requests
 pymongo
-'pymongo[srv]'
+pymongo[srv]
