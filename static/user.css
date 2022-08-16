@@ -34,10 +34,9 @@ body{
 }
 
 .Container {
-    position: absolute;
-    transform: translate(-50%, 50%);
     top: 50%;
     left: 50%;
+    margin: 30px;
 }
 
 
@@ -46,7 +45,6 @@ input[type="checkbox"] {
 }
 
 .Container label {
-    position: relative;
     color: #86c232;
     font-size: 20px;
     border: 2px solid #86c232;
