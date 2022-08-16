@@ -7,7 +7,6 @@ from scraping import db_man
 def generateNtop(n = 100) :
 
     MovieL = []
-    MovieT = []
     url = 'http://www.imdb.com/chart/top'
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -34,12 +33,12 @@ def generateNtop(n = 100) :
             "star_cast": crew[index],
             }
         MovieL.append(data)
-        MovieT.append(data['movie_title'])
+        
     
-    #db_man.insert(MovieL)
+    db_man.insert(MovieL)
     
 
-    return MovieT
+    return MovieL
 
 
 def getSuggestions(genres='action'):
@@ -82,10 +81,17 @@ def get_imageURL_fromID(img_id):
 
 def get_top_movies(n):
     docs= db_man.findAll(lim=n)
+    #temporary function ( may god help me remember to remove it )
+    if (docs.count() == 0):
+        #for the first time only
+        generateNtop()
+        docs = db_man.findAll(lim=n)
+
     Li = []
     for s in docs:
         output_str = '{} - {} ({})'.format(s['place'] , s['movie_title'] ,s['year'])
         Li.append(output_str)
+    
     return Li
 
 

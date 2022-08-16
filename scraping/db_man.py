@@ -2,9 +2,12 @@ import pymongo
 
 DB_NAME = "watch_db"
 COL_NAME = "movies"
-Listening_server = 'mongodb://localhost:27017/'
+PASSWORD = 'UOHKqh4onoGhcRVH'
+
+Listening_server = "mongodb+srv://admin_user:{}@movie-picker.qadpv9w.mongodb.net/?retryWrites=true&w=majority".format(PASSWORD)
 myclient = pymongo.MongoClient(Listening_server)
 mydb = myclient[DB_NAME]
+print("+++Connected to mongodb+++")
 
 def insert(records , col = COL_NAME):
   
